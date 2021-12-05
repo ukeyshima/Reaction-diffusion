@@ -1,12 +1,12 @@
 const path = require('path');
-const dist = path.resolve(__dirname, 'dist/');
+const docs = path.resolve(__dirname, 'docs/');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/App.jsx',
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: 'dist/',
+    contentBase: 'docs/',
     historyApiFallback: true,
     port: 8080,
     inline: true,
@@ -20,11 +20,11 @@ module.exports = {
     new HtmlWebpackPlugin({ template: 'src/index.html' }),
   ],
   output: {
-    path: dist,
+    path: docs,
     publicPath: '/',
     filename: '[name].bundle.js',
   },
-  devServer: { host: '0.0.0.0', contentBase: dist },
+  devServer: { host: '0.0.0.0', contentBase: docs },
   module: {
     rules: [
       {
